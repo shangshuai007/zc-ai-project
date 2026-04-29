@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: base-server
+  profiles:
+    active: dev
+  mvc:
+    servlet:
+      load-on-startup: 0
+
+#feign设置
+feign:
+  okhttp:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 50000  #单位毫秒
+        readTimeout: 50000

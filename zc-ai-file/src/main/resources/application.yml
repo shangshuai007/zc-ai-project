@@ -1,0 +1,40 @@
+# 应用服务器
+server:
+  undertow:
+    url-charset: UTF-8
+  tomcat:
+    uri-encoding: UTF-8
+  port: 40003
+  shutdown: graceful
+debug: true
+mybatis-plus:
+  mapper-locations: classpath*:com/platform/file/mapper/xml/*
+# Spring
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+    # 开启在线日志查看功能
+    logfile:
+      enabled: true
+
+
+# swagger配置
+swagger:
+  title: 文件上传接口
+  license:
+  licenseUrl:
+aj:
+  captcha:
+    enabled: true  # 必须开启
+knife4j:
+  enable: true
+

@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: zc-ai-gateway
+  profiles:
+    active: dev
+  mvc:
+    servlet:
+      load-on-startup: 0
+
+# 全局参数设置
+ribbon:
+  ReadTimeout: 120000
+  ConnectTimeout: 10000
+  SocketTimeout: 10000
+  MaxAutoRetries: 1  #对第一次请求的服务的重试次数
+  MaxAutoRetriesNextServer: 3  #要重试的下一个服务的最大数量（不包括第一个服务）

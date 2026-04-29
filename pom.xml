@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.zc</groupId>
+	<artifactId>zc-ai-base-project</artifactId>
+	<packaging>pom</packaging>
+	<version>${revision}</version>
+
+	<modules>
+		<module>zc-ai-gateway</module>
+		<module>zc-ai-base</module>
+		<module>zc-ai-biz</module>
+		<module>zc-ai-common</module>
+		<module>zc-ai-file</module>
+	</modules>
+
+	<properties>
+		<revision>0.0.1</revision>
+		<java.version>21</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<base.version>0.9-SNAPSHOT</base.version>
+		<zc-auth-client.version>1.1.1-SNAPSHOT</zc-auth-client.version>
+
+		<!-- spring依赖 -->
+		<spring-boot.version>3.2.4</spring-boot.version>
+		<spring-cloud.version>2023.0.0</spring-cloud.version>
+		<spring-cloud-alibaba.version>2023.0.1.0</spring-cloud-alibaba.version>
+
+		<!-- mybatis -->
+		<postgresql.version>42.2.5</postgresql.version>
+		<mybatis-plus.vesion>3.5.7</mybatis-plus.vesion>
+		<dynamic-datasource-spring-boot3-starter.version>4.3.1</dynamic-datasource-spring-boot3-starter.version>
+
+		<!-- swagger -->
+		<knife4j-dependencies.version>4.5.0</knife4j-dependencies.version>
+		<knife4j.version>2.0.8</knife4j.version>
+		<!-- 其他 -->
+		<hutool.version>5.6.7</hutool.version>
+		<lombok.version>1.18.22</lombok.version>
+		<commons-lang3.version>3.7</commons-lang3.version>
+		<commons-collections4.version>4.4</commons-collections4.version>
+		<okhttp.version>4.8.1</okhttp.version>
+		<jsqlparser.version>4.9</jsqlparser.version>
+		<easyexcel.version>3.1.4</easyexcel.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-core</artifactId>
+			<version>${hutool.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>${commons-collections4.version}</version>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Spring 依赖配置 -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring-boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba.cloud</groupId>
+				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
+				<version>${spring-cloud-alibaba.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.github.xiaoymin</groupId>
+				<artifactId>knife4j-dependencies</artifactId>
+				<version>${knife4j-dependencies.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.zc.untify</groupId>
+				<artifactId>zc-auth-client</artifactId>
+				<version>${zc-auth-client.version}</version>
+			</dependency>
+
+			<!-- mybatisplus-->
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+				<version>${mybatis-plus.vesion}</version>
+			</dependency>
+			<!-- 基础依赖jar -->
+			<dependency>
+				<groupId>com.zc.framework.base</groupId>
+				<artifactId>zc-provider-system-v3</artifactId>
+				<version>${base.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.zc.framework.base</groupId>
+				<artifactId>zc-provider-file-v3</artifactId>
+				<version>${base.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.zc.framework.base</groupId>
+				<artifactId>zc-common-core-v3</artifactId>
+				<version>${base.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.zc.framework.base</groupId>
+				<artifactId>zc-provider-system-auth-v3</artifactId>
+				<version>${base.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>${postgresql.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.squareup.okhttp3</groupId>
+				<artifactId>okhttp</artifactId>
+				<version>${okhttp.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.jsqlparser</groupId>
+				<artifactId>jsqlparser</artifactId>
+				<version>${jsqlparser.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>easyexcel</artifactId>
+				<version>${easyexcel.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>rdc-releases</id>
+			<url>https://packages.aliyun.com/maven/repository/2091423-release-XgPwPe/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>rdc-snapshots</id>
+			<url>https://packages.aliyun.com/maven/repository/2091423-snapshot-kOP5fs/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<distributionManagement>
+		<repository>
+			<id>rdc-releases</id>
+			<name>releases</name>
+			<url>https://packages.aliyun.com/maven/repository/2091423-release-XgPwPe/</url>
+		</repository>
+		<snapshotRepository>
+			<id>rdc-snapshots</id>
+			<name>snapshots</name>
+			<url>https://packages.aliyun.com/maven/repository/2091423-snapshot-kOP5fs/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<build>
+		<finalName>${project.name}</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+
+		<!--        <pluginManagement>-->
+		<!--            <plugins>-->
+		<!--                <plugin>-->
+		<!--                    <groupId>org.springframework.boot</groupId>-->
+		<!--                    <artifactId>spring-boot-maven-plugin</artifactId>-->
+		<!--                    <version>2.3.3.RELEASE</version>-->
+		<!--                    <configuration>-->
+		<!--                        &lt;!&ndash; 指定该Main Class为全局的唯一入口 &ndash;&gt;-->
+		<!--                        <layout>ZIP</layout>-->
+		<!--                    </configuration>-->
+		<!--                    <executions>-->
+		<!--                        <execution>-->
+		<!--                            <goals>-->
+		<!--                                <goal>repackage</goal>&lt;!&ndash;可以把依赖的包都打包到生成的Jar包中&ndash;&gt;-->
+		<!--                            </goals>-->
+		<!--                        </execution>-->
+		<!--                    </executions>-->
+		<!--                </plugin>-->
+		<!--            </plugins>-->
+		<!--        </pluginManagement>-->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>21</source>
+					<target>21</target>
+					<!--启用-parameters编译器标志-->
+					<compilerArgs>
+						<arg>-parameters</arg>
+					</compilerArgs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

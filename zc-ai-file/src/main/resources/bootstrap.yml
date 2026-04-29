@@ -1,0 +1,25 @@
+spring:
+  application:
+    # 应用名称
+    name: server-file
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    # 环境配置
+    active: dev
+    #  启动之后立即加载servlet
+  mvc:
+    servlet:
+      load-on-startup: 0
+
+#feign设置
+feign:
+  okhttp:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 50000  #单位毫秒
+        readTimeout: 50000
+spring.servlet.multipart.max-file-size: 300MB
+spring.servlet.multipart.max-request-size: 350MB

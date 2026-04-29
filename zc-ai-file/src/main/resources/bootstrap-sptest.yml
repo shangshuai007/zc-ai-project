@@ -1,0 +1,29 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        # 服务注册地址
+        server-addr: 10.10.216.81:8848
+        group: SSS_GROUP
+        namespace: ai-base
+      config:
+        server-addr: 10.10.216.81:8848
+        file-extension: yaml
+        group: DEFAULT_GROUP
+        namespace: ai-base
+        extension-configs[0]:
+          data-id: datasource.yaml
+          group: DEFAULT_GROUP
+          refresh: true
+        extension-configs[1]:
+          data-id: file.yaml
+          group: DEFAULT_GROUP
+          refresh: true
+        extension-configs[2]:
+          data-id: feign.yaml
+          group: DEFAULT_GROUP
+          refresh: true
+
+
+
+

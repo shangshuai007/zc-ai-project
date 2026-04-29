@@ -1,0 +1,39 @@
+# 应用服务器
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-connections: 15000  # 最大允许的连接数
+    accept-count: 2000      # 最大排队等待数
+    threads:
+      max: 800
+  port: 40001
+  shutdown: graceful
+
+# Spring
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+# mybatis-plus配置
+mybatis-plus:
+  mapper-locations: classpath*:com/zc/framework/**/mapper/xml/*,classpath*:com/zc/**/mapper/xml/*,classpath*:com/zc/**/mapper/**/xml/*
+  configuration:
+    cache-enabled: true
+
+# swagger配置
+springdoc:
+  packages-to-exclude:
+    - com.zc.framework.base.provider.system.controller.feign
+    - com.zc.framework.base.provider.file.controller.feign
+    - com.zc.kpi.base.controller.feign
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+# 验证码配置
+aj:
+  captcha:
+    cache-type: redis
+    water-mark:
+  second-check: true
